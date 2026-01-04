@@ -7,6 +7,7 @@ from typing import Dict, Any
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from google import genai
+from google.genai import types
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -21,6 +22,7 @@ MODEL = "gemini-2.5-flash-native-audio-preview-12-2025"
 DEFAULT_CONFIG = {
     "response_modalities": ["AUDIO"],
     "system_instruction": "You are a helpful and friendly AI assistant.",
+    "tools": [types.Tool(google_search=types.GoogleSearch())],
 }
 
 # Initialize Gemini Client
