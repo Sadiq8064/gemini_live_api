@@ -3,3 +3,4 @@ uvicorn[standard]
 google-genai
 python-dotenv
 websockets
+python-dotenv
