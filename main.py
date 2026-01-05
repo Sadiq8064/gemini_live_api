@@ -8,6 +8,8 @@ from typing import Dict, Any
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from google import genai
 from google.genai import types
+from dotenv import load_dotenv
+load_dotenv()  # Add this after imports
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -27,7 +29,10 @@ DEFAULT_CONFIG = {
 
 # Initialize Gemini Client
 # WARNING: Hardcoded API Key as per user request. 
-client = genai.Client(api_key="AIzaSyDwVT-irKSU-Tc582ZCyAjBo2agv7Ew2p4")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    raise ValueError("GEMINI_API_KEY environment variable is required")
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 
 @app.websocket("/ws")
