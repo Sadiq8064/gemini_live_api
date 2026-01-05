@@ -27,7 +27,7 @@ DEFAULT_CONFIG = {
 
 # Initialize Gemini Client
 # WARNING: Hardcoded API Key as per user request. 
-client = genai.Client(api_key="AIzaSyAnXMJ0YP6VtlEgY8y0NX4hZfCvBNmKIL0")
+client = genai.Client(api_key="AIzaSyDwVT-irKSU-Tc582ZCyAjBo2agv7Ew2p4")
 
 
 @app.websocket("/ws")
